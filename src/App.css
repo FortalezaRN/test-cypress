@@ -1,38 +1,86 @@
-.App {
+header {
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  background: #000;
+  border-radius: 10px;
+  border: 2px solid #232129;
+  padding: 16px;
+  width: 100%;
+  color: #f4ede8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btns{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+button {
+  border-radius: 10px;
+  height: 56px;
+  border: 0;
+  padding: 0 16px;
+  color: #FFF;
+  width: 50%;
+  font-weight: bold;
+  margin-top: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+button + button {
+  margin-left: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btns .income {
+  background-color: #89ad1c;
+  color: #d2d2d2;
+}
+
+.btns .outcome {
+  background-color: #a90d0d;
+  color: #d2d2d2;
+}
+
+.list-transactions {
+  margin-top: 16px;
+}
+.list-transactions h1{
+  text-align: center;
+}
+
+ul {
+  margin-top: 5px;
+  list-style: none;
+}
+
+li + li {
+  margin-top: 5px;
+}
+
+.income {
+  color: #89ad1c;
+}
+
+.outcome{
+  color: #a90d0d;
+}
+
+.total {
+  color: #d2d2d2;
+}
+
+.score {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.score p{
+  font-size: 20px;
+  margin-top: 5px;
 }

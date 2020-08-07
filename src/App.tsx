@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, MouseEvent } from 'react';
+import Header from './components/Header';
+import CalcForm from './components/CalcForm';
+import ListTransactions from './components/ListTransactions';
+import Score from './components/Score';
 import './App.css';
 
-function App() {
+interface Transactions {
+  value: number;
+  type: string;
+}
+
+const App = () => {
+  const [transactions, setTransactions] = useState<Transactions[]>([]);
+  const [value, setValue] = useState('');
+
+  function handleIncome(e: MouseEvent<HTMLButtonElement>) {
+    const income = {
+      value: parseFloat(value),
+      type: 'income'
+    }
+    setTransactions([...transactions, income])
+  }
+  function handleOutcome(e: MouseEvent<HTMLButtonElement>) {
+    const outcome ={
+      value: parseFloat(value),
+      type: 'outcome'
+    }
+    setTransactions([...transactions, outcome]);
+    console.log(transactions);
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <CalcForm
+          value={value}
+          setValue={setValue}
+          handleIncome={handleIncome}
+          handleOutcome={handleOutcome}
+        />
+        <Score transactions={transactions} />
+        <ListTransactions transactions={transactions} />
+      </main>
+    </>
   );
 }
 
